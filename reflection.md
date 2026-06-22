@@ -60,11 +60,18 @@ Yes. The AI helped me understand how to unpack data tuples in Python. Because ou
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 
+Streamlit reruns the entire script every time a user interacts with the app, which means variables reset unless you save them. Session state is like memory that persists across reruns—without it, game hints and attempt counts would disappear. We learned this the hard way when our hints vanished after calling `st.rerun()`, so we had to store them in `st.session_state` first to make them stick around.
+
 ---
 
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+I want to reuse the habit of writing and running targeted unit tests (like using `pytest`) before writing or changing the app code. Having failing tests clearly define the bug first gave me a precise target to fix and ensured I didn't break existing features when updating the game logic.
+
 - What is one thing you would do differently next time you work with AI on a coding task?
+Next time, I will explicitly ask the AI to explain the underlying logic or system architecture—such as how Streamlit manages state—before accepting code changes. This will prevent me from implementing quick fixes that inadvertently cause state amnesia or vanish after a rerun.
+
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+This project made me realize that AI-generated code is a powerful starting point but cannot be blindly trusted. It requires intentional human oversight, structured testing, and a solid understanding of the framework to catch hidden logic flaws or backward messages.

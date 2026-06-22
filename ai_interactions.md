@@ -32,6 +32,16 @@
 | | | | | |
 | | | | | |
 
+## Test Generation (SF7)
+
+> Document how you used AI to help generate or improve tests.
+
+| Edge Case | Prompt Used | AI-Suggested Test | Did It Pass? | Your Reasoning |
+|-----------|-------------|-------------------|--------------|----------------|
+|Negative Numbers (`-5`)| "generate a suite of pytest cases that verify our game handles these inputs." | `test_edge_case_negative_number` | Yes | Verifies that negative values are parsed cleanly as valid integers and correctly compared as "Too Low" without crashing the application. |
+|Extreme Values (`5000`)| "generate a suite of pytest cases that verify our game handles these inputs." | `test_edge_case_extremely_large_number` | Yes | Confirms numbers far beyond the standard 1–100 boundaries parse successfully and trigger the correct "Too High" outcome and "LOWER" hint. |
+|Decimal / Floats (`55.5`)| "generate a suite of pytest cases that verify our game handles these inputs." | `test_edge_case_decimal_float` | Yes | Ensures that if a user inputs a decimal string, the parser truncates it gracefully to an integer (`55`) rather than throwing a ValueError. |
+
 ---
 
 ## Linting & Style (SF9)
